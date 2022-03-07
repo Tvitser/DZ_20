@@ -21,6 +21,7 @@ def genre_dao():
     genre_dao.create = MagicMock(return_value=Genre(id=3))
     genre_dao.delete = MagicMock()
     genre_dao.update = MagicMock()
+    genre_dao.partially_update = MagicMock()
     return genre_dao
 
 
@@ -55,3 +56,9 @@ class TestGenreService:
             "age": 39,
         }
         self.genre_service.update(genre_d)
+    def test_partially_update(self):
+        genre_d = {
+            "id":1,
+            "name":"thriller"
+        }
+        self.genre_service.partially_update(genre_d)
